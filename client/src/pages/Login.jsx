@@ -1,7 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import instance from "../connection_api";
 
 const Login = () => {
+  const [values, setValues] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    instance
+      .post("/login", values)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <>
       <form>
@@ -10,7 +36,9 @@ const Login = () => {
             type="text"
             name="username"
             id="username"
-            placeholder="Ingresar usuario"
+            placeholder="Ingresar email"
+            value={values.username}
+            onChange={handleChange}
           />
         </div>
         <br />
@@ -20,10 +48,12 @@ const Login = () => {
             name="password"
             id="password"
             placeholder="Ingresar contraseña"
+            value={values.password}
+            onChange={handleChange}
           />
         </div>
         <br />
-        <button>Ingresar</button>
+        <button onClick={handleSubmit}>Ingresar</button>
       </form>
     </>
   );
