@@ -1,14 +1,16 @@
-import {Route, Routes, HashRouter as BrowserRouter } from "react-router-dom";
+import { Route, Routes, HashRouter as BrowserRouter } from "react-router-dom";
 
-const  App = () => {
+const App = () => {
   return (
-   <>
-   <h1>
-    
-   </h1>
-   
-   </>
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          {/* <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Inicio />} /> */}
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
-}
+};
 
 export default App;
