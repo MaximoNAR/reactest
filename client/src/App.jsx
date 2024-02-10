@@ -1,6 +1,6 @@
 import { Route, Routes, HashRouter as BrowserRouter } from "react-router-dom";
 import Login from "./pages/Login";
-import Inicio from "./pages/inicio";
+import Inicio from "./pages/Inicio";
 
 
 
