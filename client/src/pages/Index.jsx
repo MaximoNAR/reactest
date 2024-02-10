@@ -1,11 +1,11 @@
 import React from "react";
 
-const Inicio = () => {
+const Index = () => {
     return (
         <>
-        Inicio
+        Index
         </>
     )
-}
+};
 
-export default Inicio;
+export default Index;
